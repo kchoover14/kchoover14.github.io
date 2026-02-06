@@ -1,5 +1,5 @@
 ---
-title: "Technical Portfolio"
+title: "Kara C. Hoover Project Page"
 listing:
   id: sample-listings
   type: grid
