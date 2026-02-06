@@ -5,17 +5,11 @@ listing:
   type: grid
   grid-columns: 3
   contents:
-    - title: "Biometric Sensor Audit"
-      path: "https://karachoover.quarto.pub/biometric-audit"
-      image: "images/biometric.png"
-      description: "AWS Bedrock & Sensor Telemetry."
+    - title: "Document Validation Using Bedrock"
+      path: "https://kchoover14.github.io/Document_Validation_Using_BedrockFM/"
+      image: "images/bedrock_analysis_comparison.png"
+      description: "LLM augmention of traditional computer vision for document validation."
       categories: [LLM, AWS]
-
-    - title: "Document Validation"
-      path: "https://karachoover.quarto.pub/doc-validation"
-      image: "images/docs.png"
-      description: "High-fidelity ID verification."
-      categories: [Python, Vision]
 
     # REPEAT THIS BLOCK FOR ALL 22 PROJECTS
 ---
