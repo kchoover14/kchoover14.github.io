@@ -14,7 +14,7 @@ listing:
     # REPEAT THIS BLOCK FOR ALL 22 PROJECTS
 ---
 
-Welcome to my engineering portfolio. Use the filters to the right to explore specific domains.
+Use the filters to the right to explore specific domains.
 
 ::: {#sample-listings}
 :::
