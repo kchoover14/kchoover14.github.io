@@ -1,5 +1,8 @@
 ---
 title: "Kara C. Hoover Project Page"
+
+About Me: I'm a biological anthropologist and data scientist who bridges academic research, policy analysis, and applied analytics. My work spans human biological variation and adaptation—from biomechanics and genetic epidemiology to olfactory evolution and sensory inequities—alongside data-driven policy research in international science strategy, global R&D trends, and social equity. I specialize in translating complex data into actionable intelligence through advanced analytics (NLP, machine learning, network analysis), interactive visualizations, and reproducible workflows in R, Python, and SQL. With experience leading technical teams across academic, government, and industry settings, I'm seeking senior technical or scientific leadership roles where rigorous, data-driven approaches inform decisions about human health, science policy, and social impact.
+
 listing:
   id: sample-listings
   type: grid
