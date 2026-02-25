@@ -1,23 +1,58 @@
 ---
-title: "Kara C. Hoover Project Page"
-
-About Me: I'm a biological anthropologist and data scientist who bridges academic research, policy analysis, and applied analytics. My work spans human biological variation and adaptation—from biomechanics and genetic epidemiology to olfactory evolution and sensory inequities—alongside data-driven policy research in international science strategy, global R&D trends, and social equity. I specialize in translating complex data into actionable intelligence through advanced analytics (NLP, machine learning, network analysis), interactive visualizations, and reproducible workflows in R, Python, and SQL. With experience leading technical teams across academic, government, and industry settings, I'm seeking senior technical or scientific leadership roles where rigorous, data-driven approaches inform decisions about human health, science policy, and social impact.
-
-listing:
-  id: sample-listings
-  type: grid
-  grid-columns: 3
-  contents:
-    - title: "Document Validation Using Bedrock"
-      path: "https://kchoover14.github.io/Document_Validation_Using_BedrockFM/"
-      image: "images/bedrock_analysis_comparison.png"
-      description: "LLM augmention of traditional computer vision for document validation."
-      categories: [LLM, AWS]
-
-    # REPEAT THIS BLOCK FOR ALL 22 PROJECTS
+title: "Kara C. Hoover"
+subtitle: "Biological Anthropologist & Data Scientist"
 ---
 
-Use the filters to the right to explore specific domains.
+I'm a biological anthropologist and data scientist who bridges academic research, policy analysis, and applied analytics. My work spans human biological variation and adaptation -- from biomechanics and genetic epidemiology to olfactory evolution and sensory inequities -- alongside data-driven policy research in international science strategy, global R&D trends, and social equity. I specialize in translating complex data into actionable intelligence through advanced analytics (NLP, machine learning, network analysis), interactive visualizations, and reproducible workflows in R, Python, and SQL.
 
-::: {#sample-listings}
-:::
+[ORCID](https://orcid.org/0000-0001-6394-930X) | [Google Scholar](https://scholar.google.com/citations?user=zolkErQAAAAJ) | [GitHub](https://github.com/kchoover14)
+
+---
+
+## Research Areas
+
+**Human Biological Variation & Adaptation**
+Bioarchaeology, biomechanics, developmental stress, skeletal morphology, sexual dimorphism, population health across prehistory and the colonial era.
+
+**Olfactory Science & Genetics**
+Odorant receptor variation, olfactory ecology, field and lab methods, sensory inequities, and the evolutionary biology of smell in humans and other primates.
+
+**Policy & International Science**
+Global R&D trends, science strategy, democracy and governance, women's empowerment, forecasting and policy modelling using large comparative datasets.
+
+**Climate, Health & Adaptation**
+Extreme weather impacts, health care access and life expectancy, conservation and conflict, geospatial analysis of human-environment interaction.
+
+---
+
+## Skills
+
+**Analytics:** NLP & text mining | network analysis | bibliometrics | time series | geospatial analysis | machine learning | statistical modelling (Bayesian, LMM, GLM) | data visualization
+
+**Technical:** R | Python | SQL | Quarto | GitHub Pages | SCSS | QGIS | AWS Bedrock | Shiny
+
+---
+
+## Selected Publications
+
+Hoover, K.C. et al. (2025). Market integration in the Hadza. *Journal of International Development*. [DOI](https://doi.org/10.1080/00220388.2025.2555188)
+
+Hoover, K.C. et al. (2023). Odorant receptor variation in *Homo*. *iScience*. [DOI](https://doi.org/10.1016/j.isci.2022.105908)
+
+Hoover, K.C. et al. (2022). Occipital bone activity patterns. *American Journal of Human Biology*. [GitHub](https://github.com/kchoover14/subsistence-impacts-occipital-biomechanics)
+
+Hoover, K.C. et al. (2022). Surveillance, trust and policing at music festivals. *Canadian Geographer*. [DOI](https://doi.org/10.1111/cag.12695)
+
+Hoover, K.C. et al. (2020). Smelling in the wild. *American Journal of Human Biology*. [GitHub](https://github.com/kchoover14/smelling-in-the-wild)
+
+Hoover, K.C. et al. (2018). Linear enamel hypoplasia in Early Archaic Texas. *PeerJ*. [DOI](https://doi.org/10.7717/peerj.4367)
+
+Hoover, K.C. et al. (2018). CCR5 variation in *Homo*. *PLoS ONE*. [DOI](https://doi.org/10.1371/journal.pone.0204989)
+
+Hoover, K.C. et al. (2018). Early Holocene hunter-gatherer hands and feet. *PeerJ*. [DOI](https://doi.org/10.7717/peerj.5564)
+
+Hoover, K.C. et al. (2016). Regional diet and mandibular morphology in Japan. *Quaternary International*. [DOI](http://dx.doi.org/10.1016/j.quaint.2015.01.030)
+
+Hoover, K.C. et al. (2015). OR7D4 global survey. *Chemical Senses*. [DOI](https://doi.org/10.1093/chemse/bjv030)
+
+See full publication list on [Google Scholar](https://scholar.google.com/citations?user=zolkErQAAAAJ) or [ORCID](https://orcid.org/0000-0001-6394-930X).

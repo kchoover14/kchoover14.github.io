@@ -1,6 +1,5 @@
 project:
   type: website
-
 website:
   title: "Kara Hoover"
   navbar:
@@ -8,10 +7,11 @@ website:
     left:
       - href: index.qmd
         text: Portfolio
+      - href: projects.qmd
+        text: Projects
+    right:
       - icon: github
         href: https://github.com/kchoover14
-        text: Github
-
 format:
   html:
     theme: cerulean
