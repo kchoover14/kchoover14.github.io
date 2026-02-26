@@ -1,0 +1,68 @@
+/*-- scss:defaults --*/
+
+$navbar-bg:    #6b8f71;
+$navbar-fg:    #ffffff;
+$link-color:   #4a6b50;
+$body-bg:      #ffffff;
+$body-color:   #2a2a2a;
+$headings-color: #2a2a2a;
+
+/*-- scss:rules --*/
+
+/* Navbar */
+.navbar {
+  background-color: #6b8f71 !important;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.navbar-brand:hover {
+  color: #f0f4f1 !important;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #f0f4f1 !important;
+  font-weight: 600;
+}
+
+/* Body text and headings -- override cerulean blue */
+body {
+  color: #2a2a2a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2a2a2a;
+}
+
+a {
+  color: #4a6b50;
+}
+
+a:hover {
+  color: #3a5540;
+}
+
+/* Page title (rendered from YAML title:) */
+.title {
+  color: #2a2a2a;
+}
+
+/* Card link buttons */
+.pcard-links a {
+  color: #4a6b50 !important;
+  border-color: #b0c9b4 !important;
+}
+
+.pcard-links a:hover {
+  background: #6b8f71 !important;
+  color: #ffffff !important;
+  border-color: #6b8f71 !important;
+}

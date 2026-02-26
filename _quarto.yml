@@ -1,18 +1,25 @@
 project:
   type: website
+  output-dir: _site
+
 website:
-  title: "Kara Hoover"
+  title: "Kara C. Hoover"
+  site-url: https://kchoover14.github.io
   navbar:
+    pinned: true
     background: primary
     left:
-      - href: index.qmd
-        text: Portfolio
-      - href: projects.qmd
-        text: Projects
+      - href: about.qmd
+        text: About Me
+      - href: scientific-research.qmd
+        text: Scientific Research
+      - href: applied-policy.qmd
+        text: Applied & Policy Research
     right:
       - icon: github
         href: https://github.com/kchoover14
+
 format:
   html:
-    theme: cerulean
+    theme: [cerulean, style-landing.scss]
     toc: false
