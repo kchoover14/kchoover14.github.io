@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input9650c17ebed9ef20 – Kara C. Hoover</title>
+<title>quarto-input82579ec9bfcb0de8 – Kara C. Hoover</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -124,13 +124,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 
+/* Welcome text */
+.portfolio-intro {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  max-width: 900px;
+}
+
+/* Filter buttons */
 .filter-bar {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin: 24px 0 32px;
+  margin: 0 0 32px;
 }
 
 .filter-btn {
@@ -151,6 +163,7 @@ ul.task-list li input[type="checkbox"] {
   border-color: #6b8f71;
 }
 
+/* Card grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -162,6 +175,7 @@ ul.task-list li input[type="checkbox"] {
   padding: 0 2rem;
 }
 
+/* Individual card */
 .pcard {
   border: 1px solid #e0e0e0;
   border-radius: 6px;
@@ -177,6 +191,22 @@ ul.task-list li input[type="checkbox"] {
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
+/* Magma top borders by category */
+.cat-sos    { border-top: 3px solid #6b2d8b; }
+.cat-gov    { border-top: 3px solid #b63679; }
+.cat-hee    { border-top: 3px solid #e05c5c; }
+.cat-bio    { border-top: 3px solid #f2935c; }
+.cat-mth    { border-top: 3px solid #fbc98e; }
+
+/* Card header: title + community icons */
+.pcard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Clickable title */
 .pcard-title a {
   font-size: 1rem;
   font-weight: 600;
@@ -192,6 +222,41 @@ ul.task-list li input[type="checkbox"] {
   text-decoration-color: #4a6b50;
 }
 
+/* Community icons */
+.pcard-communities {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.pcard-communities i {
+  font-size: 0.85rem;
+  color: #6b8f71;
+  cursor: default;
+}
+
+.pcard-communities i:hover {
+  color: #2a2a2a;
+}
+
+/* Peer reviewed badge */
+.badge-peer {
+  display: block;
+  width: fit-content;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #eaf2eb;
+  color: #4a6b50;
+  border: 1px solid #b0c9b4;
+  margin-top: 4px;
+}
+
+/* Card body text */
 .pcard-text {
   font-size: 0.875rem;
   color: #444;
@@ -207,6 +272,7 @@ ul.task-list li input[type="checkbox"] {
   font-weight: 700;
 }
 
+/* Bottom row: chips + repo link */
 .pcard-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -255,27 +321,92 @@ ul.task-list li input[type="checkbox"] {
   border-color: #b0c9b4;
 }
 
-.badge-peer {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 2px 8px;
-  border-radius: 3px;
-  background: #eaf2eb;
-  color: #4a6b50;
-  border: 1px solid #b0c9b4;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
+/* Hidden cards */
 .pcard.hidden {
   display: none;
 }
 
+/* Floating legend button */
+.legend-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #6b8f71;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: background 0.15s;
+}
+
+.legend-toggle:hover {
+  background: #4a6b50;
+}
+
+/* Legend panel */
+.legend-panel {
+  position: fixed;
+  bottom: 68px;
+  right: 24px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  z-index: 999;
+  display: none;
+  min-width: 210px;
+}
+
+.legend-panel.open {
+  display: block;
+}
+
+.legend-panel h4 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b8f71;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-item i {
+  color: #6b8f71;
+  font-size: 0.85rem;
+  width: 16px;
+  text-align: center;
+}
+
 </style>
 
+<!-- Welcome text -->
+<p class="portfolio-intro">
+  <strong>Welcome to my project portfolio.</strong> Each card summarizes a project with a finding, recommendation or implication, and methods — the card title links to the full project page. Small icons in the top right corner of each card indicate the communities served by the work — tap <i class="fa-solid fa-circle-info" style="color:#6b8f71"></i> at the bottom right for a legend. Use the filters below to explore projects by topic area.
+</p>
+
+<!-- Filter buttons -->
 <div class="filter-bar">
   <button class="filter-btn active" onclick="filterCards('all', event)">All</button>
   <button class="filter-btn" onclick="filterCards('science-of-science', event)">Science of Science</button>
@@ -285,464 +416,551 @@ ul.task-list li input[type="checkbox"] {
   <button class="filter-btn" onclick="filterCards('methods-tools', event)">Methods &amp; Tools</button>
 </div>
 
+<!-- Card grid -->
 <div class="card-grid">
 
   <!-- SCIENCE OF SCIENCE -->
 
-  <div class="pcard" data-category="science-of-science">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/r1-federal-funding-dependency/" target="_blank">How Dependent Are R1 Universities on Federal Funding?</a>
+  <div class="pcard cat-sos" data-category="science-of-science">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/r1-federal-funding-dependency/" target="_blank">How Dependent Are R1 Universities on Federal Funding?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Federal funding has fallen from 75% to 55% of total R1 R&amp;D expenditure over fifty years with forecasts suggesting stabilization at or below current levels — though current cuts will likely accelerate that trend when 2025 data are available.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> State and institutional leaders should use trend analysis, sensitivity analysis, geographic dependency mapping, and volatility rankings together to identify exposure and prioritize diversification and advocacy strategies before cuts accelerate.</p>
     <p class="pcard-text"><strong>Methods:</strong> Time series analysis, ARIMA forecasting, and animated geospatial mapping of HERD survey data across 1,400+ institutions, 1974–2024.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">time series</span>
-      <span class="chip">ARIMA</span>
-      <span class="chip">geospatial</span>
-      <span class="chip">HERD</span>
+      <span class="chip">R</span><span class="chip">time series</span><span class="chip">ARIMA</span><span class="chip">geospatial</span><span class="chip">HERD</span>
       <a href="https://github.com/kchoover14/r1-federal-funding-dependency" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="science-of-science">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/r1-federal-funding-dependency-fields/" target="_blank">Which Research Fields Face the Greatest Federal Funding Risk?</a>
+  <div class="pcard cat-sos" data-category="science-of-science">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/r1-federal-funding-dependency-fields/" target="_blank">Which Research Fields Face the Greatest Federal Funding Risk?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Federal dependency varies dramatically across disciplines and recent federal trends signal a shift away from basic science funding without industry investment filling the gap.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Institutions and funders should prioritize support for high-dependency fields with no nonfederal backstop, particularly physical sciences and geosciences.</p>
     <p class="pcard-text"><strong>Methods:</strong> Field-level analysis of 24 S&amp;E disciplines using HERD survey data across five decades, with ARIMA forecasts through 2034.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">time series</span>
-      <span class="chip">ARIMA</span>
-      <span class="chip">data visualization</span>
-      <span class="chip">HERD</span>
+      <span class="chip">R</span><span class="chip">time series</span><span class="chip">ARIMA</span><span class="chip">data visualization</span><span class="chip">HERD</span>
       <a href="https://github.com/kchoover14/r1-federal-funding-dependency-fields" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="science-of-science">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/forecasting-rd-leadership-dynamics/" target="_blank">Are We at a Global R&amp;D Tipping Point Due to Aging Demographics?</a>
+  <div class="pcard cat-sos" data-category="science-of-science">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/forecasting-rd-leadership-dynamics/" target="_blank">Are We at a Global R&amp;D Tipping Point Due to Aging Demographics?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Aging demographics will constrain R&amp;D leadership pipelines across all six world regions by 2035, with variation in timing and severity that aggregate global trends obscure.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Research funders and policymakers should prioritize international partnerships and infrastructure investment in demographically young regions before aging economies exhaust their R&amp;D leadership pipelines.</p>
     <p class="pcard-text"><strong>Methods:</strong> Time series and regression analysis of aging demographics and R&amp;D productivity across six world regions using V-Dem and World Bank data, 1996–2019.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">time series</span>
-      <span class="chip">forecasting</span>
-      <span class="chip">V-Dem</span>
-      <span class="chip">World Bank</span>
+      <span class="chip">R</span><span class="chip">time series</span><span class="chip">forecasting</span><span class="chip">V-Dem</span><span class="chip">World Bank</span>
       <a href="https://github.com/kchoover14/forecasting-rd-leadership-dynamics" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="science-of-science">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/benchmarking-global-research-impact/" target="_blank">How Do Nations Compare on Research Impact?</a>
+  <div class="pcard cat-sos" data-category="science-of-science">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/benchmarking-global-research-impact/" target="_blank">How Do Nations Compare on Research Impact?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Research impact varies substantially across countries and fields in ways that raw publication counts obscure, with small high-income nations consistently punching above their weight.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Institutions and funders should adopt context-sensitive benchmarking frameworks that account for country size, field composition, and resource constraints rather than applying uniform impact standards.</p>
     <p class="pcard-text"><strong>Methods:</strong> Bibliometric framework for benchmarking research impact across countries and fields using Google BigQuery and network analysis.</p>
     <div class="pcard-bottom">
-      <span class="chip">Python</span>
-      <span class="chip">Google BigQuery</span>
-      <span class="chip">bibliometrics</span>
-      <span class="chip">network analysis</span>
-      <span class="chip">scientometrics</span>
+      <span class="chip">Python</span><span class="chip">Google BigQuery</span><span class="chip">bibliometrics</span><span class="chip">network analysis</span><span class="chip">scientometrics</span>
       <a href="https://github.com/kchoover14/benchmarking-global-research-impact" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="science-of-science governance-democracy">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/dei-international-org-assessment/" target="_blank">What Are Best Practices for Evidence-Based DEI in International Science Organizations?</a>
-      <span class="badge-peer">Peer Reviewed</span>
+  <div class="pcard cat-sos" data-category="science-of-science governance-democracy">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/dei-international-org-assessment/" target="_blank">What Are Best Practices for Evidence-Based DEI in International Science Organizations?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> DEI barriers in international research organizations are structural rather than individual, requiring evidence-based policy frameworks rather than awareness initiatives.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> International science organizations should move beyond awareness initiatives toward structural policy reform guided by mixed-methods evidence.</p>
     <p class="pcard-text"><strong>Methods:</strong> Survey analytics, Slack network analysis, and bibliometric review across peer international science organizations.</p>
     <div class="pcard-bottom">
-      <span class="chip">Python</span>
-      <span class="chip">network analysis</span>
-      <span class="chip">survey analytics</span>
-      <span class="chip">bibliometrics</span>
-      <span class="chip">mixed methods</span>
+      <span class="chip">Python</span><span class="chip">network analysis</span><span class="chip">survey analytics</span><span class="chip">bibliometrics</span><span class="chip">mixed methods</span>
       <a href="https://github.com/kchoover14/dei-international-org-assessment" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
   <!-- GOVERNANCE & DEMOCRACY -->
 
-  <div class="pcard" data-category="governance-democracy">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/education-drives-democracy/" target="_blank">What Drives Long-Run Democratic Development?</a>
+  <div class="pcard cat-gov" data-category="governance-democracy">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/education-drives-democracy/" target="_blank">What Drives Long-Run Democratic Development?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Education is a stronger and more consistent driver of participatory democracy than wealth across two centuries and six world regions.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Development policymakers should prioritize investment in education as a primary democratic institution-building strategy independent of economic growth trajectories.</p>
     <p class="pcard-text"><strong>Methods:</strong> Cross-national time series analysis of education, wealth, and democracy indicators using V-Dem and World Bank data, 1800–2000.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">time series</span>
-      <span class="chip">V-Dem</span>
-      <span class="chip">World Bank</span>
-      <span class="chip">democracy</span>
+      <span class="chip">R</span><span class="chip">time series</span><span class="chip">V-Dem</span><span class="chip">World Bank</span><span class="chip">democracy</span>
       <a href="https://github.com/kchoover14/education-drives-democracy" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="governance-democracy">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/education-fosters-inclusive-governance/" target="_blank">What Drives Women's Empowerment in Politics?</a>
+  <div class="pcard cat-gov" data-category="governance-democracy">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/education-fosters-inclusive-governance/" target="_blank">What Drives Women's Empowerment in Politics?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Women's representation in governance and educational gender parity are mutually reinforcing across world regions, with egalitarian democracy acting as both cause and consequence of gender equity gains.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Gender equity policymakers should invest simultaneously in educational parity and political representation rather than sequencing one before the other.</p>
     <p class="pcard-text"><strong>Methods:</strong> Cross-national regression and data visualization across six world regions using V-Dem and World Bank data.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">regression</span>
-      <span class="chip">data visualization</span>
-      <span class="chip">V-Dem</span>
-      <span class="chip">World Bank</span>
+      <span class="chip">R</span><span class="chip">regression</span><span class="chip">data visualization</span><span class="chip">V-Dem</span><span class="chip">World Bank</span>
       <a href="https://github.com/kchoover14/education-fosters-inclusive-governance" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="governance-democracy">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/surveillance-anxiety-public-spaces/" target="_blank">What Are the Root Causes of Public Attitudes Toward Surveillance?</a>
-      <span class="badge-peer">Peer Reviewed</span>
+  <div class="pcard cat-gov" data-category="governance-democracy">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/surveillance-anxiety-public-spaces/" target="_blank">What Are the Root Causes of Public Attitudes Toward Surveillance?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> A music festival case study reveals that attitudes toward surveillance and policing vary significantly by sex, experience, and sexual orientation, with trust in law enforcement mediating perceptions of safety.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Event organizers and public safety policymakers should adopt differentiated surveillance and policing approaches that account for demographic variation in trust and safety perceptions.</p>
     <p class="pcard-text"><strong>Methods:</strong> Logistic regression and Bayesian modeling of survey data from festival-goers on surveillance, policing, and safety perceptions.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">Bayesian</span>
-      <span class="chip">logistic regression</span>
-      <span class="chip">brms</span>
-      <span class="chip">survey data analysis</span>
+      <span class="chip">R</span><span class="chip">Bayesian</span><span class="chip">logistic regression</span><span class="chip">brms</span><span class="chip">survey data analysis</span>
       <a href="https://github.com/kchoover14/surveillance-anxiety-public-spaces" target="_blank" class="chip-repo">↗ GitHub</a>
-      <a href="https://doi.org/10.1111/cag.12695" target="_blank" class="chip-doi">↗ DOI</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="governance-democracy">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/mapping-conflict-indigenous-china/" target="_blank">Is There Terrorism in China?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Political violence in China is geographically tied to the Uyghur ethnic minority, an indigenous people under active state suppression, suggesting that state-labeled terrorism may reflect political activism rather than conventional terrorism.</p>
-    <p class="pcard-text"><strong>Recommendation:</strong> Researchers and policymakers should critically examine state-defined terrorism databases as potential evidence of political repression, particularly in authoritarian contexts where dissent and terrorism are conflated.</p>
-    <p class="pcard-text"><strong>Methods:</strong> QGIS mapping of Global Terrorism Database data, China 2010–2018.</p>
-    <div class="pcard-bottom">
-      <span class="chip">QGIS</span>
-      <span class="chip">geospatial</span>
-      <span class="chip">GTD</span>
-      <span class="chip">indigenous rights</span>
-      <a href="https://github.com/kchoover14/mapping-conflict-indigenous-china" target="_blank" class="chip-repo">↗ GitHub</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="governance-democracy">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/mapping-terrorism-ape-conservation/" target="_blank">Is Terrorism Impacting Ape Conservation Efforts in Sub-Saharan Africa?</a>
+  <div class="pcard cat-gov" data-category="governance-democracy">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/mapping-terrorism-ape-conservation/" target="_blank">Is Terrorism Impacting Ape Conservation Efforts in Sub-Saharan Africa?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Terrorism attacks within ape habitat ranges in sub-Saharan Africa cluster in the poorest and least democratic regions, creating a compounding threat to human and non-human ape populations.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Conservation policymakers should integrate political stability and poverty reduction strategies into ape conservation frameworks rather than treating security and ecology as separate policy domains.</p>
     <p class="pcard-text"><strong>Methods:</strong> QGIS mapping of terrorism attacks overlaid on primate habitat data across sub-Saharan Africa.</p>
     <div class="pcard-bottom">
-      <span class="chip">QGIS</span>
-      <span class="chip">geospatial</span>
-      <span class="chip">conservation</span>
-      <span class="chip">R</span>
+      <span class="chip">QGIS</span><span class="chip">geospatial</span><span class="chip">conservation</span><span class="chip">R</span>
       <a href="https://github.com/kchoover14/mapping-terrorism-ape-conservation" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-gov" data-category="governance-democracy">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/mapping-conflict-indigenous-china/" target="_blank">Is There Terrorism in China?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Political violence in China is geographically tied to the Uyghur ethnic minority, an indigenous people under active state suppression, suggesting that state-labeled terrorism may reflect political activism rather than conventional terrorism.</p>
+    <p class="pcard-text"><strong>Recommendation:</strong> Researchers and policymakers should critically examine state-defined terrorism databases as potential evidence of political repression, particularly in authoritarian contexts where dissent and terrorism are conflated.</p>
+    <p class="pcard-text"><strong>Methods:</strong> QGIS mapping of Global Terrorism Database data, China 2010–2018.</p>
+    <div class="pcard-bottom">
+      <span class="chip">QGIS</span><span class="chip">geospatial</span><span class="chip">GTD</span><span class="chip">indigenous rights</span>
+      <a href="https://github.com/kchoover14/mapping-conflict-indigenous-china" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
   <!-- HEALTH, ENVIRONMENT & ECOLOGY -->
 
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/hunter-gatherer-resilience-agricultural-expansion/" target="_blank">Did Hunter-Gatherers in Kyushu Stay Healthy During the Agricultural Transition?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Persistent hunter-gatherers in northwest Kyushu were consistent in population health metrics before and after agricultural expansion, suggesting there were cultural buffers against the health costs of the Yayoi transition.</p>
-    <p class="pcard-text"><strong>Implication:</strong> This is the first application of resilience theory to bioarchaeological analysis, establishing a framework for evaluating population health stability under cultural and environmental pressure that has since been adopted more broadly in the field.</p>
-    <p class="pcard-text"><strong>Methods:</strong> Enamel hypoplasia rate modeling and fluctuating asymmetry analysis using the full Palmer-Strobeck nine-step protocol on prehistoric skeletal remains.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">bioarchaeology</span>
-      <span class="chip">enamel hypoplasia</span>
-      <span class="chip">fluctuating asymmetry</span>
-      <a href="https://github.com/kchoover14/hunter-gatherer-resilience-agricultural-expansion" target="_blank" class="chip-repo">↗ GitHub</a>
-      <a href="http://dx.doi.org/10.1016/j.quaint.2015.10.047" target="_blank" class="chip-doi">↗ DOI</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/hadza-market-integration/" target="_blank">Does Market Integration Improve or Harm Hunter-Gatherer Health?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Market integration improves traditional Hadza male childhood health with no effect on females, revealing a sex-based divergence in the health consequences of economic transition in a remote market economy.</p>
-    <p class="pcard-text"><strong>Implication:</strong> This is the first study to apply bioarchaeological methods to a living population, providing a longitudinal biological measure of health change alongside conventional human biology approaches.</p>
-    <p class="pcard-text"><strong>Methods:</strong> Linear mixed-effects modeling and Bayesian confirmation of developmental stress markers across 62 years of Hadza health data, with bibliometric network analysis of the research landscape.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">Python</span>
-      <span class="chip">Bayesian</span>
-      <span class="chip">mixed effects</span>
-      <span class="chip">brms</span>
-      <span class="chip">bibliometrics</span>
-      <a href="https://github.com/kchoover14/hadza-market-integration" target="_blank" class="chip-repo">↗ GitHub</a>
-      <a href="https://doi.org/10.1080/00220388.2025.2555188" target="_blank" class="chip-doi">↗ DOI</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/baboon-stress/" target="_blank">Does Developmental Stress Differ by Sex and Life Stage in Wild Baboons?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Developmental stress in wild Nigerian olive baboons varies by sex and life history stage, with juvenile stress markers revealing biological sensitivity to early environmental conditions.</p>
-    <p class="pcard-text"><strong>Implication:</strong> Non-human primate developmental stress patterns provide a comparative baseline for understanding how early life adversity shapes long-term biological outcomes in humans.</p>
-    <p class="pcard-text"><strong>Methods:</strong> Fluctuating asymmetry analysis using FA10b index across ten replicate measurement sets, with Levene's tests for sex differences, life history stage stress, and weaning and reproductive stress signals.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">fluctuating asymmetry</span>
-      <span class="chip">developmental stress</span>
-      <span class="chip">primatology</span>
-      <a href="https://github.com/kchoover14/baboon-stress" target="_blank" class="chip-repo">↗ GitHub</a>
-      <a href="https://peerj.com/articles/11832/" target="_blank" class="chip-doi">↗ DOI</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/peripheral-resilience-ryukyu-colonialism/" target="_blank">Did Colonial Geography Shape Health Outcomes in Ryukyu?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Colonial health disparities in Ryukyu burial populations were spatially structured, with remote sites showing a distinct sex-differentiated health profile and differential biological consequences of political subjugation.</p>
-    <p class="pcard-text"><strong>Implication:</strong> Colonial health in Japan has received little scholarly attention — this study is among the first to apply bioarchaeological methods to Japanese colonial contexts, revealing that geographic marginalization compounded the biological consequences of political subjugation.</p>
-    <p class="pcard-text"><strong>Methods:</strong> GLM analysis with site, sex, and site×sex interaction predictors across five skeletal health markers from three colonial-era Ryukyu burial sites.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">GLM</span>
-      <span class="chip">bioarchaeology</span>
-      <span class="chip">health disparity</span>
-      <a href="https://github.com/kchoover14/peripheral-resilience-ryukyu-colonialism" target="_blank" class="chip-repo">↗ GitHub</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/subsistence-impacts-occipital-biomechanics/" target="_blank">Does Subsistence Strategy Shape Skull Biomechanics?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Occipital bone morphology varies systematically across hunter-gatherer, horticultural, and agricultural skeletal collections, reflecting differences in biomechanical loading by subsistence type and sex.</p>
-    <p class="pcard-text"><strong>Implication:</strong> By comprehensively synthesizing scattered studies through multivariate classification, this study determines that the use of occipital morphology for demographic classification falls far below forensic evidentiary standards while establishing value as a bioarchaeological tool for reconstructing subsistence history — an avenue not previously explored.</p>
-    <p class="pcard-text"><strong>Methods:</strong> Two-way ANOVA, discriminant function analysis, and PCA of ectocranial variables across subsistence groups, with sex estimation models using foramen magnum morphology.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">ANOVA</span>
-      <span class="chip">discriminant function</span>
-      <span class="chip">PCA</span>
-      <span class="chip">skeletal biology</span>
-      <a href="https://github.com/kchoover14/subsistence-impacts-occipital-biomechanics" target="_blank" class="chip-repo">↗ GitHub</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/smelling-in-the-wild/" target="_blank">Does Real-World Odor Identification Differ from Lab Performance?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Odor identification in real-world field conditions differs from laboratory performance, with environmental context shaping olfactory accuracy in ways that controlled studies cannot capture.</p>
-    <p class="pcard-text"><strong>Implication:</strong> Olfactory research should expand to include field-based methods alongside laboratory protocols to produce ecologically valid findings about human sensory capacity.</p>
-    <p class="pcard-text"><strong>Methods:</strong> GLMs, quasibinomial models, correspondence analysis, and multinomial logistic regression across forced-choice and free-choice odor identification tasks in field and lab settings.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">GLM</span>
-      <span class="chip">mixed methods</span>
-      <span class="chip">olfactory ecology</span>
-      <span class="chip">field methods</span>
-      <a href="https://github.com/kchoover14/smelling-in-the-wild" target="_blank" class="chip-repo">↗ GitHub</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/old-noses/" target="_blank">Did Ancient Humans Smell the World Differently?</a>
-      <span class="badge-peer">Peer Reviewed</span>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Functional odorant receptor testing revealed that extinct hominins and ancient human populations had a more limited olfactory repertoire than contemporary humans.</p>
-    <p class="pcard-text"><strong>Implication:</strong> Greater olfactory receptor diversity in contemporary humans may reflect functional ecological adaptation, suggesting that sensory capacity continued to evolve after the divergence of archaic and modern lineages.</p>
-    <p class="pcard-text"><strong>Methods:</strong> Ancient DNA extraction and variant calling using VCFtools and HPC pipelines, phylogenetic reconstruction, chimeric PCR with site-directed mutagenesis, and luciferase reporter assays across seven odorants.</p>
-    <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">HPC</span>
-      <span class="chip">ancient DNA</span>
-      <span class="chip">phylogenetics</span>
-      <span class="chip">olfaction</span>
-      <span class="chip">functional genomics</span>
-      <a href="https://github.com/kchoover14/old-noses" target="_blank" class="chip-repo">↗ GitHub</a>
-      <a href="https://doi.org/10.1016/j.isci.2022.105908" target="_blank" class="chip-doi">↗ DOI</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/medical-density-longer-life/" target="_blank">Does Healthcare Worker Density Affect Life Expectancy?</a>
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/medical-density-longer-life/" target="_blank">Does Healthcare Worker Density Affect Life Expectancy?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Healthcare worker density positively impacts life expectancy by up to a year, with oral health access representing a systematically neglected driver of mortality risk.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Health policymakers should treat oral health provider access as a mortality risk factor and incorporate dental workforce density into life expectancy models and health equity frameworks.</p>
     <p class="pcard-text"><strong>Methods:</strong> Linear regression and regional time series analysis of healthcare worker density and life expectancy across countries, with effect size estimation and identification of 43 primary intervention target countries.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">regression</span>
-      <span class="chip">time series</span>
-      <span class="chip">health equity</span>
-      <span class="chip">mortality</span>
+      <span class="chip">R</span><span class="chip">regression</span><span class="chip">time series</span><span class="chip">health equity</span><span class="chip">mortality</span>
       <a href="https://github.com/kchoover14/medical-density-longer-life" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="health-environment-ecology">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/noaa-storm-impact-analysis/" target="_blank">Which Weather Events Cause the Most Harm in the United States?</a>
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/hadza-market-integration/" target="_blank">Does Market Integration Improve or Harm Hunter-Gatherer Health?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Market integration improves traditional Hadza male childhood health with no effect on females, revealing a sex-based divergence in the health consequences of economic transition in a remote market economy.</p>
+    <p class="pcard-text"><strong>Implication:</strong> This is the first study to apply bioarchaeological methods to a living population, providing a longitudinal biological measure of health change alongside conventional human biology approaches.</p>
+    <p class="pcard-text"><strong>Methods:</strong> Linear mixed-effects modeling and Bayesian confirmation of developmental stress markers across 62 years of Hadza health data, with bibliometric network analysis of the research landscape.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">Python</span><span class="chip">Bayesian</span><span class="chip">mixed effects</span><span class="chip">brms</span><span class="chip">bibliometrics</span>
+      <a href="https://github.com/kchoover14/hadza-market-integration" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/smelling-in-the-wild/" target="_blank">Does Real-World Odor Identification Differ from Lab Performance?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Odor identification in real-world field conditions differs from laboratory performance, with environmental context shaping olfactory accuracy in ways that controlled studies cannot capture.</p>
+    <p class="pcard-text"><strong>Implication:</strong> Olfactory research should expand to include field-based methods alongside laboratory protocols to produce ecologically valid findings about human sensory capacity.</p>
+    <p class="pcard-text"><strong>Methods:</strong> GLMs, quasibinomial models, correspondence analysis, and multinomial logistic regression across forced-choice and free-choice odor identification tasks in field and lab settings.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">GLM</span><span class="chip">mixed methods</span><span class="chip">olfactory ecology</span><span class="chip">field methods</span>
+      <a href="https://github.com/kchoover14/smelling-in-the-wild" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/hunter-gatherer-resilience-agricultural-expansion/" target="_blank">Did Hunter-Gatherers in Kyushu Stay Healthy During the Agricultural Transition?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Persistent hunter-gatherers in northwest Kyushu were consistent in population health metrics before and after agricultural expansion, suggesting there were cultural buffers against the health costs of the Yayoi transition.</p>
+    <p class="pcard-text"><strong>Implication:</strong> This is the first application of resilience theory to bioarchaeological analysis, establishing a framework for evaluating population health stability under cultural and environmental pressure that has since been adopted more broadly in the field.</p>
+    <p class="pcard-text"><strong>Methods:</strong> Enamel hypoplasia rate modeling and fluctuating asymmetry analysis using the full Palmer-Strobeck nine-step protocol on prehistoric skeletal remains.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">bioarchaeology</span><span class="chip">enamel hypoplasia</span><span class="chip">fluctuating asymmetry</span>
+      <a href="https://github.com/kchoover14/hunter-gatherer-resilience-agricultural-expansion" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/peripheral-resilience-ryukyu-colonialism/" target="_blank">Did Colonial Geography Shape Health Outcomes in Ryukyu?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Colonial health disparities in Ryukyu burial populations were spatially structured, with remote sites showing a distinct sex-differentiated health profile and differential biological consequences of political subjugation.</p>
+    <p class="pcard-text"><strong>Implication:</strong> Colonial health in Japan has received little scholarly attention — this study is among the first to apply bioarchaeological methods to Japanese colonial contexts, revealing that geographic marginalization compounded the biological consequences of political subjugation.</p>
+    <p class="pcard-text"><strong>Methods:</strong> GLM analysis with site, sex, and site×sex interaction predictors across five skeletal health markers from three colonial-era Ryukyu burial sites.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">GLM</span><span class="chip">bioarchaeology</span><span class="chip">health disparity</span>
+      <a href="https://github.com/kchoover14/peripheral-resilience-ryukyu-colonialism" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/baboon-stress/" target="_blank">Does Developmental Stress Differ by Sex and Life Stage in Wild Baboons?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Developmental stress in wild Nigerian olive baboons varies by sex and life history stage, with juvenile stress markers revealing biological sensitivity to early environmental conditions.</p>
+    <p class="pcard-text"><strong>Implication:</strong> Non-human primate developmental stress patterns provide a comparative baseline for understanding how early life adversity shapes long-term biological outcomes in humans.</p>
+    <p class="pcard-text"><strong>Methods:</strong> Fluctuating asymmetry analysis using FA10b index across ten replicate measurement sets, with Levene's tests for sex differences, life history stage stress, and weaning and reproductive stress signals.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">fluctuating asymmetry</span><span class="chip">developmental stress</span><span class="chip">primatology</span>
+      <a href="https://github.com/kchoover14/baboon-stress" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/old-noses/" target="_blank">Did Ancient Humans Smell the World Differently?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Functional odorant receptor testing revealed that extinct hominins and ancient human populations had a more limited olfactory repertoire than contemporary humans.</p>
+    <p class="pcard-text"><strong>Implication:</strong> Greater olfactory receptor diversity in contemporary humans may reflect functional ecological adaptation, suggesting that sensory capacity continued to evolve after the divergence of archaic and modern lineages.</p>
+    <p class="pcard-text"><strong>Methods:</strong> Ancient DNA extraction and variant calling using VCFtools and HPC pipelines, phylogenetic reconstruction, chimeric PCR with site-directed mutagenesis, and luciferase reporter assays across seven odorants.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">HPC</span><span class="chip">ancient DNA</span><span class="chip">phylogenetics</span><span class="chip">olfaction</span><span class="chip">functional genomics</span>
+      <a href="https://github.com/kchoover14/old-noses" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/subsistence-impacts-occipital-biomechanics/" target="_blank">Does Subsistence Strategy Shape Skull Biomechanics?</a>
+        <span class="badge-peer">Peer Reviewed</span>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Occipital bone morphology varies systematically across hunter-gatherer, horticultural, and agricultural skeletal collections, reflecting differences in biomechanical loading by subsistence type and sex.</p>
+    <p class="pcard-text"><strong>Implication:</strong> By comprehensively synthesizing scattered studies through multivariate classification, this study determines that the use of occipital morphology for demographic classification falls far below forensic evidentiary standards while establishing value as a bioarchaeological tool for reconstructing subsistence history — an avenue not previously explored.</p>
+    <p class="pcard-text"><strong>Methods:</strong> Two-way ANOVA, discriminant function analysis, and PCA of ectocranial variables across subsistence groups, with sex estimation models using foramen magnum morphology.</p>
+    <div class="pcard-bottom">
+      <span class="chip">R</span><span class="chip">ANOVA</span><span class="chip">discriminant function</span><span class="chip">PCA</span><span class="chip">skeletal biology</span>
+      <a href="https://github.com/kchoover14/subsistence-impacts-occipital-biomechanics" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-hee" data-category="health-environment-ecology">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/noaa-storm-impact-analysis/" target="_blank">Which Weather Events Cause the Most Harm in the United States?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> A small subset of storm and flood event types account for the majority of fatalities, injuries, and property damage across the US from 1996–2011.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Emergency management agencies should prioritize preparedness and mitigation resources toward the highest-impact event types identified by VSL-weighted impact analysis and spatial damage mapping.</p>
     <p class="pcard-text"><strong>Methods:</strong> VSL-weighted combined impact indexing, animated time series of top event types, and interactive choropleth mapping of state-level damage normalized by population using NOAA storm data.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">geospatial</span>
-      <span class="chip">NOAA</span>
-      <span class="chip">extreme weather</span>
-      <span class="chip">public safety</span>
+      <span class="chip">R</span><span class="chip">geospatial</span><span class="chip">NOAA</span><span class="chip">extreme weather</span><span class="chip">public safety</span>
       <a href="https://github.com/kchoover14/noaa-storm-impact-analysis" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
   <!-- BIOMETRICS & AI -->
 
-  <div class="pcard" data-category="biometrics-ai">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/human-variation-challenges-frt/" target="_blank">Does Facial Recognition Technology Perform Equally Across Human Biological Variation?</a>
+  <div class="pcard cat-bio" data-category="biometrics-ai">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/human-variation-challenges-frt/" target="_blank">Does Facial Recognition Technology Perform Equally Across Human Biological Variation?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Modeled on documented NIST performance patterns, FaceNet shows significant performance disparities across race, gender, and age, with accuracy declining most sharply for darker-skinned females and older individuals.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> FRT systems should be evaluated on the balance between security benefit and demographic burden — flagging who faces additional scrutiny not because they pose a risk but because the technology failed them.</p>
     <p class="pcard-text"><strong>Methods:</strong> Bias audit of FaceNet using synthetic data modeled on documented VGGFace2 training bias patterns across 126 demographic groups and 25,200 comparisons.</p>
     <div class="pcard-bottom">
-      <span class="chip">Python</span>
-      <span class="chip">FaceNet</span>
-      <span class="chip">biometrics</span>
-      <span class="chip">bias auditing</span>
-      <span class="chip">civil liberties</span>
+      <span class="chip">Python</span><span class="chip">FaceNet</span><span class="chip">biometrics</span><span class="chip">bias auditing</span><span class="chip">civil liberties</span>
       <a href="https://github.com/kchoover14/human-variation-challenges-frt" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="biometrics-ai">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/morph-attack-detection-resnet/" target="_blank">Can Machine Learning Detect Morphed Face Images?</a>
+  <div class="pcard cat-bio" data-category="biometrics-ai">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/morph-attack-detection-resnet/" target="_blank">Can Machine Learning Detect Morphed Face Images?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-landmark-dome" title="Policy &amp; Government"></i>
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> A fine-tuned ResNet50 binary classifier successfully distinguishes genuine from morphed face images, with Grad-CAM visualization identifying model attention patterns and failure modes.</p>
     <p class="pcard-text"><strong>Implication:</strong> Automated morph attack detection is viable at scale, with implications for border control, identity verification, and any system relying on facial recognition for high-stakes authentication.</p>
     <p class="pcard-text"><strong>Methods:</strong> ResNet50 fine-tuned on 500 LFW images and 250 alpha-blended morphs, evaluated on accuracy, precision, recall, and ROC/AUC, with results benchmarked against published morph detection studies.</p>
     <div class="pcard-bottom">
-      <span class="chip">Python</span>
-      <span class="chip">ResNet</span>
-      <span class="chip">deep learning</span>
-      <span class="chip">biometrics</span>
-      <span class="chip">morph attack detection</span>
-      <span class="chip">Grad-CAM</span>
+      <span class="chip">Python</span><span class="chip">ResNet</span><span class="chip">deep learning</span><span class="chip">biometrics</span><span class="chip">Grad-CAM</span>
       <a href="https://github.com/kchoover14/morph-attack-detection-resnet" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="biometrics-ai">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/xai-prompt-engineering-bedrock/" target="_blank">Can Few-Shot Prompt Engineering Classify Biometric Sensor Data?</a>
-    </div>
-    <p class="pcard-text"><strong>Finding:</strong> Few-shot prompt engineering via AWS Bedrock successfully classifies biometric sensor data, with performance varying substantially across Temperature, Top-K, and Top-P parameter combinations.</p>
-    <p class="pcard-text"><strong>Implication:</strong> Parameter optimization is critical for LLM-based classification tasks — default settings produce substantially suboptimal results compared to tuned configurations.</p>
-    <p class="pcard-text"><strong>Methods:</strong> Few-shot prompt engineering with systematic parameter sweep across Temperature, Top-K, and Top-P, with stochastic consistency testing and cross-model comparison via AWS Bedrock.</p>
-    <div class="pcard-bottom">
-      <span class="chip">Python</span>
-      <span class="chip">AWS Bedrock</span>
-      <span class="chip">prompt engineering</span>
-      <span class="chip">LLM</span>
-      <span class="chip">biometrics</span>
-      <a href="https://github.com/kchoover14/xai-prompt-engineering-bedrock" target="_blank" class="chip-repo">↗ GitHub</a>
-    </div>
-  </div>
-
-  <div class="pcard" data-category="biometrics-ai">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/Document_Validation_Using_BedrockFM/" target="_blank">Can Serverless AI Pipelines Automate Document Validation?</a>
+  <div class="pcard cat-bio" data-category="biometrics-ai">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/document-validation-bedrock/" target="_blank">Can Serverless AI Pipelines Automate Document Validation?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> A serverless pipeline using Claude 3 Haiku via AWS Bedrock successfully automates document validation and auditing with low latency and no persistent infrastructure.</p>
     <p class="pcard-text"><strong>Recommendation:</strong> Serverless LLM pipelines should be considered as a cost-effective and scalable approach to document validation tasks traditionally requiring manual review or complex rule-based systems.</p>
     <p class="pcard-text"><strong>Methods:</strong> Lambda-based pipeline invoking Claude 3 Haiku via Bedrock across three prompting strategies, evaluated on parse success, response time, and accuracy against known ground truth, with cost modeling across three architectures.</p>
     <div class="pcard-bottom">
-      <span class="chip">Python</span>
-      <span class="chip">AWS Bedrock</span>
-      <span class="chip">AWS Lambda</span>
-      <span class="chip">serverless</span>
-      <span class="chip">document validation</span>
-      <span class="chip">PostgreSQL</span>
+      <span class="chip">Python</span><span class="chip">AWS Bedrock</span><span class="chip">AWS Lambda</span><span class="chip">serverless</span><span class="chip">PostgreSQL</span>
       <a href="https://github.com/kchoover14/document-validation-bedrock" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
-  <div class="pcard" data-category="biometrics-ai">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/ml-lift-better/" target="_blank">Can Wearable Accelerometers Classify Exercise Form?</a>
+  <div class="pcard cat-bio" data-category="biometrics-ai">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/xai-prompt-engineering-bedrock/" target="_blank">Can Few-Shot Prompt Engineering Classify Biometric Sensor Data?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
+    </div>
+    <p class="pcard-text"><strong>Finding:</strong> Few-shot prompt engineering via AWS Bedrock successfully classifies biometric sensor data, with performance varying substantially across Temperature, Top-K, and Top-P parameter combinations.</p>
+    <p class="pcard-text"><strong>Implication:</strong> Parameter optimization is critical for LLM-based classification tasks — default settings produce substantially suboptimal results compared to tuned configurations.</p>
+    <p class="pcard-text"><strong>Methods:</strong> Few-shot prompt engineering with systematic parameter sweep across Temperature, Top-K, and Top-P, with stochastic consistency testing and cross-model comparison via AWS Bedrock.</p>
+    <div class="pcard-bottom">
+      <span class="chip">Python</span><span class="chip">AWS Bedrock</span><span class="chip">prompt engineering</span><span class="chip">LLM</span><span class="chip">biometrics</span>
+      <a href="https://github.com/kchoover14/xai-prompt-engineering-bedrock" target="_blank" class="chip-repo">↗ GitHub</a>
+    </div>
+  </div>
+
+  <div class="pcard cat-bio" data-category="biometrics-ai">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/ml-lift-better/" target="_blank">Can Wearable Accelerometers Classify Exercise Form?</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-robot" title="Industry &amp; Technology"></i>
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-people-group" title="Public &amp; Civil Society"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> Random forest and gradient boosting models applied to wearable accelerometer data successfully classify bicep curl form into correct and common error categories with high accuracy.</p>
     <p class="pcard-text"><strong>Implication:</strong> Exercise form is as important as exercise volume for fitness outcomes — wearable sensor data can be tuned to measure technique quality without human supervision or specialized equipment.</p>
     <p class="pcard-text"><strong>Methods:</strong> Four models trained and evaluated using caret with 5-fold cross-validation, variable importance extraction, and optimal predictor subset identification across decision tree, bagged tree, GBM, and random forest approaches.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">random forest</span>
-      <span class="chip">gradient boosting</span>
-      <span class="chip">accelerometer</span>
-      <span class="chip">machine learning</span>
-      <span class="chip">caret</span>
+      <span class="chip">R</span><span class="chip">random forest</span><span class="chip">gradient boosting</span><span class="chip">accelerometer</span><span class="chip">caret</span>
       <a href="https://github.com/kchoover14/ml-lift-better" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
   <!-- METHODS & TOOLS -->
 
-  <div class="pcard" data-category="methods-tools">
-    <div class="pcard-title">
-      <a href="https://kchoover14.github.io/fluctuating-asymmetry-workflow/" target="_blank">A Reproducible Workflow for Fluctuating Asymmetry Analysis</a>
+  <div class="pcard cat-mth" data-category="methods-tools">
+    <div class="pcard-header">
+      <div class="pcard-title">
+        <a href="https://kchoover14.github.io/fluctuating-asymmetry-workflow/" target="_blank">A Reproducible Workflow for Fluctuating Asymmetry Analysis</a>
+      </div>
+      <div class="pcard-communities">
+        <i class="fa-solid fa-atom" title="Scientific Community"></i>
+        <i class="fa-solid fa-magnifying-glass-dollar" title="Research Enterprise"></i>
+      </div>
     </div>
     <p class="pcard-text"><strong>Finding:</strong> The Palmer-Strobeck protocol for fluctuating asymmetry analysis can be fully implemented in modular, reproducible R scripts accessible to researchers without specialist programming expertise.</p>
     <p class="pcard-text"><strong>Implication:</strong> Open reproducible implementations of established protocols reduce methodological inconsistency across studies and lower the barrier to entry for developmental stress research.</p>
     <p class="pcard-text"><strong>Methods:</strong> Modular R implementation of the full Palmer-Strobeck nine-step FA screening protocol including measurement error detection, outlier screening, mixed-model ANOVA, and FA10 index computation.</p>
     <div class="pcard-bottom">
-      <span class="chip">R</span>
-      <span class="chip">fluctuating asymmetry</span>
-      <span class="chip">reproducible research</span>
-      <span class="chip">open source</span>
+      <span class="chip">R</span><span class="chip">fluctuating asymmetry</span><span class="chip">reproducible research</span><span class="chip">open source</span>
       <a href="https://github.com/kchoover14/fluctuating-asymmetry-workflow" target="_blank" class="chip-repo">↗ GitHub</a>
     </div>
   </div>
 
 </div>
 
+<!-- Floating legend toggle -->
+<button class="legend-toggle" onclick="toggleLegend()" aria-label="Community legend">
+  <i class="fa-solid fa-circle-info"></i>
+</button>
+
+<!-- Legend panel -->
+<div class="legend-panel" id="legendPanel">
+  <h4 class="anchored">Communities Served</h4>
+  <div class="legend-item"><i class="fa-solid fa-landmark-dome"></i> Policy &amp; Government</div>
+  <div class="legend-item"><i class="fa-solid fa-magnifying-glass-dollar"></i> Research Enterprise</div>
+  <div class="legend-item"><i class="fa-solid fa-atom"></i> Scientific Community</div>
+  <div class="legend-item"><i class="fa-solid fa-robot"></i> Industry &amp; Technology</div>
+  <div class="legend-item"><i class="fa-solid fa-people-group"></i> Public &amp; Civil Society</div>
+</div>
+
 <script>
 function filterCards(category, event) {
   document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
   event.target.classList.add('active');
-
   document.querySelectorAll('.pcard').forEach(card => {
     if (category === 'all') {
       card.classList.remove('hidden');
@@ -756,6 +974,18 @@ function filterCards(category, event) {
     }
   });
 }
+
+function toggleLegend() {
+  document.getElementById('legendPanel').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('legendPanel');
+  const btn = document.querySelector('.legend-toggle');
+  if (!panel.contains(e.target) && !btn.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
 </script>
 
 
