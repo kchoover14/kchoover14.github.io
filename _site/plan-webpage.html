@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Research – Kara C. Hoover</title>
+<title>plan-webpage – Kara C. Hoover</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./scientific-research.html" aria-current="page"> 
+    <a class="nav-link" href="./scientific-research.html"> 
 <span class="menu-text">Scientific Research</span></a>
   </li>  
   <li class="nav-item">
@@ -123,200 +123,209 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Scientific Research</h1>
-<p class="subtitle lead">Peer-reviewed publications on human biological variation, olfactory science, genetic epidemiology, climate change, and developmental stress</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="portfolio-website-rules-planning-document" class="level1">
+<h1>Portfolio Website — Rules &amp; Planning Document</h1>
+<p><strong>Site:</strong> https://kchoover14.github.io<br>
+<strong>Last updated:</strong> 2026-02-27</p>
+<hr>
+<section id="site-structure" class="level2">
+<h2 class="anchored" data-anchor-id="site-structure">Site Structure</h2>
+<p>The portfolio is a Quarto website with four pages:</p>
+<ul>
+<li><strong>Landing page</strong> (<code>index.qmd</code>) — bio, skills cards, links</li>
+<li><strong>About Me</strong> (<code>about.qmd</code>) — full bio and publications list</li>
+<li><strong>Scientific Research</strong> (<code>scientific-research.qmd</code>) — eggplant theme, 8 project cards</li>
+<li><strong>Applied &amp; Policy Research</strong> (<code>applied-policy.qmd</code>) — blues theme, 14 project cards</li>
+</ul>
+<section id="navigation" class="level3">
+<h3 class="anchored" data-anchor-id="navigation">Navigation</h3>
+<ul>
+<li>Navbar: About Me | Scientific Research | Applied &amp; Policy Research | GitHub icon (right)</li>
+<li>Site name/brand (“Kara C. Hoover”) in navbar links home — no separate Home tab</li>
+<li>QMD source files are local-only and never committed to git. Only <code>_site/</code> is pushed.</li>
+</ul>
+</section>
+<section id="render-deploy-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="render-deploy-workflow">Render &amp; Deploy Workflow</h3>
+<ol type="1">
+<li>Make edits to QMD and SCSS files locally</li>
+<li>Delete <code>_site/</code> folder</li>
+<li>Run <code>quarto render</code></li>
+<li>Push <code>_site/</code> to GitHub</li>
+<li>No YAML changes needed when swapping <code>style-master.scss</code> — filename stays the same</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="theming" class="level2">
+<h2 class="anchored" data-anchor-id="theming">Theming</h2>
+<section id="two-palettes-controlled-by-style-master.scss" class="level3">
+<h3 class="anchored" data-anchor-id="two-palettes-controlled-by-style-master.scss">Two palettes controlled by <code>style-master.scss</code></h3>
+<p><strong>Blues</strong> (default / Applied &amp; Policy pages) - Primary: <code>#004080</code> - Used in: <code>applied-policy.qmd</code> - Body class: <code>blues</code> (default, no class needed)</p>
+<p><strong>Eggplant</strong> (Scientific Research / academic pages) - Primary: <code>#6b3d72</code> - Primary dark: <code>#532f5a</code> - Used in: <code>scientific-research.qmd</code> and all individual project pages (smelling-in-the-wild, subsistence-impacts-occipital-biomechanics, peripheral-resilience-ryukyu-colonialism) - Body class: add <code>body-classes: eggplant</code> to QMD YAML</p>
+<p><strong>TOC active link color (eggplant pages):</strong> <code>#45733E</code> (forest green)</p>
+<p><strong>Landing page</strong> uses fern green (<code>#6b8f71</code>) — separate inline styles in <code>index.qmd</code>, not controlled by <code>style-master.scss</code>.</p>
+</section>
+<section id="applying-the-theme-to-a-project-page" class="level3">
+<h3 class="anchored" data-anchor-id="applying-the-theme-to-a-project-page">Applying the theme to a project page</h3>
+<p>Each project repo needs its own <code>style-master.scss</code> (copy from portfolio root). No <code>_quarto.yml</code> changes needed — the SCSS filename is the same everywhere.</p>
+<hr>
+</section>
+</section>
+<section id="card-rules" class="level2">
+<h2 class="anchored" data-anchor-id="card-rules">Card Rules</h2>
+<section id="scientific-research-cards-eggplant" class="level3">
+<h3 class="anchored" data-anchor-id="scientific-research-cards-eggplant">Scientific Research cards (eggplant)</h3>
+<p><strong>Every card must have exactly three pills:</strong> 1. <strong>DOI</strong> — links to the published article 2. <strong>Project page</strong> — links to the GitHub Pages portfolio page (<code>https://kchoover14.github.io/repo-name/</code>) 3. <strong>Repository</strong> — links to the GitHub repo (<code>https://github.com/kchoover14/repo-name</code>)</p>
+<p>Cards without a project page yet still show the DOI and Repository pills. The Project page pill is added when the page is built. Cards already have a page but are missing DOI — this needs to be fixed (see Backlog).</p>
+<p><strong>Description rules:</strong> - Card description and GitHub repo description must match exactly — card is the master - For published projects: description is findings-forward (states the result, not just the question) - For unpublished or unreviewed projects: use a minimalist question-focused description (Ryukyu-style: describe the question/approach, not the finding) - For repos where scripts are being updated but no new analysis is being done: use the formula <em>“Scripts and data for [publication title or topic].”</em> — neutral, accurate, doesn’t overclaim - Journal name and year appear in italics at the end of the description for published work - Card and repo descriptions must mirror exactly — when in doubt, update the repo to match the card</p>
+</section>
+<section id="applied-policy-research-cards-blues" class="level3">
+<h3 class="anchored" data-anchor-id="applied-policy-research-cards-blues">Applied &amp; Policy Research cards (blues)</h3>
+<p><strong>Each card has two pills:</strong> 1. <strong>Project page</strong> — links to the GitHub Pages portfolio page 2. <strong>Repository</strong> — links to the GitHub repo</p>
+<p>No DOI pills on blues cards (these are applied/data science projects, not journal publications).</p>
+</section>
+<section id="pill-label-conventions" class="level3">
+<h3 class="anchored" data-anchor-id="pill-label-conventions">Pill label conventions</h3>
+<ul>
+<li>DOI link: label is <code>DOI</code></li>
+<li>Portfolio page link: label is <code>Portfolio page</code></li>
+<li>GitHub repo link: label is <code>GitHub repo</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="description-conventions" class="level2">
+<h2 class="anchored" data-anchor-id="description-conventions">Description Conventions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Published, findings confirmed</td>
+<td>Findings-forward: state the result</td>
+</tr>
+<tr class="even">
+<td>Published, findings not confirmed/reviewed</td>
+<td>Question-forward: state the question and approach (Ryukyu model)</td>
+</tr>
+<tr class="odd">
+<td>Unpublished, in progress</td>
+<td>Question-forward with no journal citation</td>
+</tr>
+<tr class="even">
+<td>Scripts being updated, no new analysis</td>
+<td><em>“Scripts and data for [topic/title].”</em></td>
+</tr>
+<tr class="odd">
+<td>Placeholder (page not yet built)</td>
+<td>Minimalist — do not invent findings</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="backlog" class="level2">
+<h2 class="anchored" data-anchor-id="backlog">Backlog</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"><strong>Add DOI pill to eggplant cards that have a project page</strong> — Subsistence/Occipital, Smelling in the Wild, Peripheral Resilience/Ryukyu currently show Portfolio page + Repository but are missing DOI. All three eggplant cards should have all three pills.</label></li>
+<li><label><input type="checkbox">Build portfolio pages for: Hadza, Old Noses (OR Variation), Surveillance, Baboons — currently repo-only with DOI + Repository pills</label></li>
+<li><label><input type="checkbox">Build portfolio page for Hunter-Gatherer Resilience (Kyushu)</label></li>
+<li><label><input type="checkbox">New repo and card for COVID SES diagnosis-seeking paper (<code>ses-symptom-variation-diagnosis</code>) — description drafted, unpublished so question-forward</label></li>
+<li><label><input type="checkbox">Add new repos as projects complete (e.g., ses-symptom-variation-diagnosis)</label></li>
+<li><label><input type="checkbox">Set up daily local backup routine for QMD source files (lesson from git clean disaster — QMDs are local-only and not in git history)</label></li>
+</ul>
+<hr>
+</section>
+<section id="to-discuss-next" class="level2">
+<h2 class="anchored" data-anchor-id="to-discuss-next">To Discuss Next</h2>
+<ul>
+<li>Consider adding thumbnail images back to project cards (was removed earlier; revisit whether it improves visual appeal vs.&nbsp;clutter)</li>
+</ul>
+<hr>
+</section>
+<section id="file-inventory" class="level2">
+<h2 class="anchored" data-anchor-id="file-inventory">File Inventory</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Location</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>index.qmd</code></td>
+<td>Portfolio root (local only)</td>
+<td>Landing page — 6 skill cards, bio, links</td>
+</tr>
+<tr class="even">
+<td><code>about.qmd</code></td>
+<td>Portfolio root (local only)</td>
+<td>Bio + publications list</td>
+</tr>
+<tr class="odd">
+<td><code>scientific-research.qmd</code></td>
+<td>Portfolio root (local only)</td>
+<td>8 eggplant project cards</td>
+</tr>
+<tr class="even">
+<td><code>applied-policy.qmd</code></td>
+<td>Portfolio root (local only)</td>
+<td>14 blues project cards</td>
+</tr>
+<tr class="odd">
+<td><code>_quarto.yml</code></td>
+<td>Portfolio root</td>
+<td>Site config and navbar — committed to git</td>
+</tr>
+<tr class="even">
+<td><code>style-master.scss</code></td>
+<td>Portfolio root + each project repo</td>
+<td>Master stylesheet — copy to each project repo</td>
+</tr>
+<tr class="odd">
+<td><code>_site/</code></td>
+<td>Portfolio root</td>
+<td>Rendered output — only thing pushed to git</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="git-rules-lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="git-rules-lessons-learned">Git Rules (Lessons Learned)</h2>
+<ul>
+<li><strong>Never run <code>git clean -fd</code></strong> — QMD source files are untracked by design and will be permanently deleted</li>
+<li><strong>Never run <code>git reset --hard</code></strong> — same risk</li>
+<li>Read-only diagnostics only: <code>git status</code>, <code>git log</code>, <code>git diff</code></li>
+<li>To force-stage a file Git thinks is unchanged: <code>git add -f filename</code></li>
+<li>Recovery of deleted untracked files: only possible from rendered HTML in <code>_site/</code> — painful and imperfect</li>
+<li>If Git pane shows phantom files (<code>??</code>): investigate with <code>git status</code> before taking any action</li>
+</ul>
 
 
-</header>
-
-
-<style>
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.pcard {
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 20px 22px 16px;
-  background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.pcard-title {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.35;
-  margin: 0;
-}
-
-.pcard-desc {
-  font-size: 0.875rem;
-  color: #444;
-  line-height: 1.6;
-  flex: 1;
-}
-
-.pcard-links {
-  display: flex;
-  gap: 10px;
-  margin-top: 6px;
-  flex-wrap: wrap;
-}
-
-.pcard-links a {
-  font-size: 0.78rem;
-  padding: 4px 12px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  text-decoration: none;
-  color: #5a465e;
-  transition: background 0.15s, color 0.15s;
-}
-
-.pcard-links a:hover {
-  background: #5a465e;
-  color: #ffffff;
-  border-color: #5a465e;
-}
-
-.pcard-links a.repo {
-  color: #555;
-  border-color: #ccc;
-}
-
-.pcard-links a.repo:hover {
-  background: #555;
-  color: #ffffff;
-  border-color: #555;
-}
-</style>
-
-<div class="card-grid">
-
-<div class="pcard">
-    <p class="pcard-title">A Mixed-Methods Toolkit for DEI Policy in International Organizations</p>
-    <p class="pcard-desc">Survey analytics, Slack network analysis, and bibliometrics used to investigate DEI barriers and develop evidence-based policy recommendations for international research organizations.</p>
-    <div class="pcard-links">
-      <a href="https://kchoover14.github.io/dei-international-org-assessment/" target="_blank">Portfolio page</a>
-      <a href="https://github.com/kchoover14/dei-international-org-assessment" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Fluctuating Asymmetry Workflow</p>
-    <p class="pcard-desc">A fully reproducible, open implementation of the Palmer-Strobeck fluctuating asymmetry screening protocol with modular R scripts for wrangling, inspection, and hypothesis testing.</p>
-    <div class="pcard-links">
-      <a href="https://kchoover14.github.io/fluctuating-asymmetry-workflow/" target="_blank">Portfolio page</a>
-      <a href="https://github.com/kchoover14/fluctuating-asymmetry-workflow" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Hunter-Gatherer Resilience &amp; Agricultural Expansion</p>
-    <p class="pcard-desc">Developmental stress markers in prehistoric skeletal remains from northwest Kyushu test whether persistent hunter-gatherers maintained population health after agricultural expansion.</p>
-    <div class="pcard-links">
-      <a href="https://kchoover14.github.io/hunter-gatherer-resilience-agricultural-expansion/" target="_blank">Portfolio page</a>
-      <a href="http://dx.doi.org/10.1016/j.quaint.2015.10.047" target="_blank">DOI</a>
-      <a href="https://github.com/kchoover14/hunter-gatherer-resilience-agricultural-expansion" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-  
-  <div class="pcard">
-    <p class="pcard-title">Subsistence Impacts on Occipital Biomechanics</p>
-    <p class="pcard-desc">Occipital bone morphology across hunter-gatherer, horticultural, and agricultural skeletal collections reveals systematic variation in biomechanical loading by subsistence type and sex.</p>
-    <div class="pcard-links">
-      <a href="https://kchoover14.github.io/subsistence-impacts-occipital-biomechanics/" target="_blank">Portfolio page</a>
-      <a href="https://github.com/kchoover14/subsistence-impacts-occipital-biomechanics" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Smelling in the Wild</p>
-    <p class="pcard-desc">Field and lab study of odor identification in real-world environments, combining a published study with new analysis.</p>
-    <div class="pcard-links">
-      <a href="https://kchoover14.github.io/smelling-in-the-wild/" target="_blank">Portfolio page</a>
-      <a href="https://github.com/kchoover14/smelling-in-the-wild" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Peripheral Resilience -- Ryukyu Colonialism</p>
-    <p class="pcard-desc">GLM analysis of skeletal health markers from three colonial-era Ryukyu burial sites tests whether distance from Japanese colonial centers shaped health outcomes by geography and sex.</p>
-    <div class="pcard-links">
-      <a href="https://kchoover14.github.io/peripheral-resilience-ryukyu-colonialism/" target="_blank">Portfolio page</a>
-      <a href="https://github.com/kchoover14/peripheral-resilience-ryukyu-colonialism" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Market Integration -- Hadza</p>
-    <p class="pcard-desc">This repository contains data, scripts, markdowns, and preprints for Market integration improves traditional Hadza male childhood health with no effect on females.</p>
-    <div class="pcard-links">
-      <a href="https://doi.org/10.1080/00220388.2025.2555188" target="_blank">DOI</a>
-      <a href="https://github.com/kchoover14/hadza-market-integration" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Odorant Receptor Variation in <em>Homo</em></p>
-    <p class="pcard-desc">Code and data for Functional expression of odorant receptors in extinct hominins and ancient humans.</p>
-    <div class="pcard-links">
-      <a href="https://doi.org/10.1016/j.isci.2022.105908" target="_blank">DOI</a>
-      <a href="https://github.com/kchoover14/old-noses" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Surveillance, Trust &amp; Policing at Music Festivals</p>
-    <p class="pcard-desc">Scripts and data for a project on surveillance and policing at summer music festivals.</p>
-    <div class="pcard-links">
-      <a href="https://doi.org/10.1111/cag.12695" target="_blank">DOI</a>
-      <a href="https://github.com/kchoover14/surveillance-anxiety-public-spaces" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Developmental Instability -- Nigerian Baboons</p>
-    <p class="pcard-desc">Data and scripts for Developmental Stress in Wild Nigerian Olive Baboons.</p>
-    <div class="pcard-links">
-      <a href="https://peerj.com/articles/11832/" target="_blank">DOI</a>
-      <a href="https://github.com/kchoover14/baboon-stress" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-  <div class="pcard">
-    <p class="pcard-title">Hunter-Gatherer Resilience &amp; Agricultural Expansion</p>
-    <p class="pcard-desc">Scripts and data for the analysis of resilience in skeletal remains across prehistoric Jomon archaeological sites in Kyushu Japan during the Yayoi agricultural transition.</p>
-    <div class="pcard-links">
-      <a href="http://dx.doi.org/10.1016/j.quaint.2015.10.047" target="_blank">DOI</a>
-      <a href="https://github.com/kchoover14/hunter-gatherer-resilience-agricultural-expansion" target="_blank" class="repo">GitHub repo</a>
-    </div>
-  </div>
-
-</div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
