@@ -9,12 +9,12 @@ website:
     pinned: true
     background: primary
     left:
+      - href: portfolio.qmd
+        text: Portfolio
       - href: about.qmd
         text: About Me
-      - href: scientific-research.qmd
-        text: Scientific Research
-      - href: applied-policy.qmd
-        text: Applied & Policy Research
+
+
     right:
       - icon: github
         href: https://github.com/kchoover14
